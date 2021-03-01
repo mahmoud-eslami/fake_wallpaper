@@ -7,6 +7,11 @@ class AppThemes {
     scaffoldBackgroundColor: AppColors.lightThemeBackgroundColor,
     accentColor: AppColors.lightThemePrimaryColor,
     textTheme: _textTheme(lightThemeTextStyle),
+    inputDecorationTheme: InputDecorationTheme(
+      border: OutlineInputBorder(
+        borderSide: BorderSide.none,
+      ),
+    ),
     floatingActionButtonTheme: _fabTheme(AppColors.lightThemePrimaryColor),
   );
 
@@ -15,6 +20,11 @@ class AppThemes {
     scaffoldBackgroundColor: AppColors.darkThemeBackgroundColor,
     accentColor: AppColors.darkThemePrimaryColor,
     textTheme: _textTheme(darkThemeTextStyle),
+    inputDecorationTheme: InputDecorationTheme(
+      border: OutlineInputBorder(
+        borderSide: BorderSide.none,
+      ),
+    ),
     floatingActionButtonTheme: _fabTheme(AppColors.darkThemePrimaryColor),
   );
 
