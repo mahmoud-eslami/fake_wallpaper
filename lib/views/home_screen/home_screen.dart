@@ -8,13 +8,11 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Get.changeTheme(AppThemes.appLightTheme);
+          Get.changeTheme(Get.isDarkMode ? AppThemes.light : AppThemes.dark);
         },
       ),
       body: Center(
-        child: Text(
-          'Hi there Mahmoud!'
-        ),
+        child: Text('Hi there Mahmoud!'),
       ),
     );
   }

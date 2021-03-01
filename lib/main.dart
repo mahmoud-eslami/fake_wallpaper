@@ -13,7 +13,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: AppStrings.appName,
-      theme: AppThemes.appLightTheme,
+      theme: AppThemes.light,
+      darkTheme: AppThemes.dark,
       home: HomeScreen(),
     );
   }

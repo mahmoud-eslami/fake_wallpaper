@@ -2,23 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_wallpaper/recources/app_colors/app_colors.dart';
 
 class AppThemes {
-  static TextStyle lightThemeTextStyle = TextStyle(color: AppColors.lightThemeTextColor);
-  static TextStyle darkThemeTextStyle = TextStyle(color: AppColors.darkThemeTextColor);
-
-  static ThemeData appLightTheme = ThemeData(
+  static final light = ThemeData.light().copyWith(
     primaryColor: AppColors.lightThemePrimaryColor,
     scaffoldBackgroundColor: AppColors.lightThemeBackgroundColor,
     accentColor: AppColors.lightThemePrimaryColor,
     textTheme: _textTheme(lightThemeTextStyle),
     floatingActionButtonTheme: _fabTheme(AppColors.lightThemePrimaryColor),
   );
-  static ThemeData appDarkTheme = ThemeData(
+
+  static final dark = ThemeData.dark().copyWith(
     primaryColor: AppColors.darkThemePrimaryColor,
     scaffoldBackgroundColor: AppColors.darkThemeBackgroundColor,
     accentColor: AppColors.darkThemePrimaryColor,
     textTheme: _textTheme(darkThemeTextStyle),
     floatingActionButtonTheme: _fabTheme(AppColors.darkThemePrimaryColor),
   );
+
+  static TextStyle lightThemeTextStyle = TextStyle(color: AppColors.lightThemeTextColor);
+  static TextStyle darkThemeTextStyle = TextStyle(color: AppColors.darkThemeTextColor);
 
   static TextTheme _textTheme(TextStyle mainStyle) {
     return TextTheme(
