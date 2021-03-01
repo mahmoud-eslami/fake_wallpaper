@@ -22,13 +22,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.5.0-nullsafety.1"
-  bloc:
-    dependency: transitive
-    description:
-      name: bloc
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "6.1.1"
   boolean_selector:
     dependency: transitive
     description:
@@ -139,13 +132,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_bloc:
-    dependency: "direct main"
-    description:
-      name: flutter_bloc
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "6.1.2"
   flutter_icons:
     dependency: "direct main"
     description:
@@ -160,6 +146,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.8.1"
+  flutter_staggered_grid_view:
+    dependency: "direct main"
+    description:
+      name: flutter_staggered_grid_view
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.3.4"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -247,13 +240,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.3.0-nullsafety.3"
-  nested:
-    dependency: transitive
-    description:
-      name: nested
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.4"
   path:
     dependency: transitive
     description:
@@ -331,13 +317,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.13"
-  provider:
-    dependency: transitive
-    description:
-      name: provider
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "4.3.3"
   shared_preferences:
     dependency: "direct main"
     description:
