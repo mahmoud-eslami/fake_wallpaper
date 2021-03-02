@@ -3,6 +3,7 @@ import 'package:flutter_wallpaper/resource/app_colors/app_colors.dart';
 import 'package:flutter_wallpaper/resource/app_strings/app_strings.dart';
 import 'package:flutter_wallpaper/resource/app_themes/app_themes.dart';
 import 'package:flutter_wallpaper/utils/size_config/size_config.dart';
+import 'package:flutter_wallpaper/views/wallpaper_screen/wallpaper_screen.dart';
 import 'package:get/get.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -107,7 +108,12 @@ class BestWallpaperWidget extends StatelessWidget {
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: 10,
-            itemBuilder: (context, index) => imageWidget(),
+            itemBuilder: (context, index) => GestureDetector(
+              onTap: () {
+                Get.to(WallpaperScreen(imgPath: 'assets/images/flow.jpeg'));
+              },
+              child: imageWidget(),
+            ),
           ),
         ),
       ],
@@ -121,9 +127,8 @@ class BestWallpaperWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
           ),
           clipBehavior: Clip.antiAliasWithSaveLayer,
-          //todo: add cache network image here
           child: Image.asset(
-            'assets/images/wall.jpg',
+            'assets/images/flow.jpeg',
             fit: BoxFit.fill,
           ),
         ),
@@ -221,7 +226,7 @@ class CategoryWidget extends StatelessWidget {
           child: Image.asset(
             'assets/images/wall.jpg',
             height: 80,
-            fit: BoxFit.fill,
+            fit: BoxFit.cover,
           ),
         ),
       );
