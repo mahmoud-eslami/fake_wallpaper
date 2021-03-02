@@ -1,0 +1,14 @@
+{
+  "Photo": {
+    "title": "string",
+    "imgPath": "string"
+  },
+  "Category": {
+    "id": "int",
+    "title": "string",
+    "imgPath": "String"
+  },
+  "BestPhotos": {
+    "images": "Photo[]"
+  }
+}
