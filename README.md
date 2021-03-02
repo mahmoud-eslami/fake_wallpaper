@@ -1,16 +1,23 @@
-# fake_flutter_wallpaper
+# Fake Wallpaper
+###### _MVC flutter app with fake data_
 
-fake flutter wallpaper application
+In this sample use mvc for application architecture and use getx package for state management and navigation. data is fake but in future application integrated with wallpaper api.
 
-## Getting Started
+- Feel free to contribute 🙏
+- Your pull requests are welcome 🥳
 
-This project is a starting point for a Flutter application.
+### application detail :
 
-A few resources to get you started if this is your first Flutter project:
+- State Management : Get x
+- Navigation : Get x
+- Applications architecture : MVC
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+#### Packages
+| Packages | pub.dev |
+| ------ | ------ |
+| Get x | [https://pub.dev/packages/get][PlDb] |
+| Intent | [https://pub.dev/packages/intent][PlGh] |
+| flutter staggered grid view | [https://pub.dev/packages/flutter_staggered_grid_view][PlMe] |
+| google fonts | [https://pub.dev/packages/google_fonts][PlGa] |
+| flutter icon launcher | [https://pub.dev/packages/flutter_launcher_icons][PlOd] |
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
