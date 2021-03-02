@@ -1,6 +1,6 @@
-# flutter_wallpaper
+# fake_flutter_wallpaper
 
-find best wallpaper
+fake flutter wallpaper application
 
 ## Getting Started
 
