@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_wallpaper/resource/app_colors/app_colors.dart';
+import 'package:flutter_wallpaper/resource/app_strings/app_strings.dart';
 import 'package:flutter_wallpaper/utils/size_config/size_config.dart';
 import 'package:get/get.dart';
 
@@ -27,19 +28,19 @@ class WallpaperScreen extends StatelessWidget {
                 WallpaperButtonWidget(
                   onTap: () {},
                   icon: Icons.info,
-                  iconTitle: 'Info',
-                  buttonColor: AppColors.darkThemeTextColor.withOpacity(.8),
+                  iconTitle: AppStrings.info,
+                  buttonColor: AppColors.darkThemeTextColor.withOpacity(.6),
                 ),
                 WallpaperButtonWidget(
                   onTap: () {},
                   icon: Icons.save_alt,
-                  iconTitle: 'Save',
-                  buttonColor: AppColors.darkThemeTextColor.withOpacity(.8),
+                  iconTitle: AppStrings.save,
+                  buttonColor: AppColors.darkThemeTextColor.withOpacity(.6),
                 ),
                 WallpaperButtonWidget(
                   onTap: () {},
                   icon: Icons.brush_outlined,
-                  iconTitle: 'Apply',
+                  iconTitle: AppStrings.apply,
                   buttonColor: Get.theme.primaryColor,
                 ),
               ],

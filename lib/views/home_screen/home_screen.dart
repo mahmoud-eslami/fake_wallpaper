@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_wallpaper/controllers/home_controllers/theme_controller.dart';
 import 'package:flutter_wallpaper/resource/app_colors/app_colors.dart';
 import 'package:flutter_wallpaper/resource/app_strings/app_strings.dart';
 import 'package:flutter_wallpaper/resource/app_themes/app_themes.dart';
@@ -7,13 +8,21 @@ import 'package:flutter_wallpaper/views/wallpaper_screen/wallpaper_screen.dart';
 import 'package:get/get.dart';
 
 class HomeScreen extends StatelessWidget {
+  final themeController = Get.put(ThemeController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Get.changeTheme(Get.isDarkMode ? AppThemes.light : AppThemes.dark);
+          themeController.changeTheme();
         },
+        child: GetBuilder(
+          init: themeController,
+          builder: (controller) => Icon(
+            (controller.lightTheme == true) ? Icons.wb_sunny : Icons.nightlight_round,
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         child: SafeArea(

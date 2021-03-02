@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
 class SplashController extends GetxController {
-  bool splashFinished = false.obs();
+  bool splashFinished = false;
 
   @override
   void onInit() {
@@ -12,5 +12,6 @@ class SplashController extends GetxController {
   splashPageOpened() async {
     await Future.delayed(Duration(seconds: 2));
     splashFinished = true;
+    update();
   }
 }
