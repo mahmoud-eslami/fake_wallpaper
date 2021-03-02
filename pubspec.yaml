@@ -12,13 +12,12 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.0
-  equatable: ^1.2.6
-  dio: ^3.0.10
-  get_it: ^5.0.6
+  # equatable: ^1.2.6
+  # dio: ^3.0.10
+  # get_it: ^5.0.6
   get: ^3.25.6
-  extended_image: ^1.6.0
-  shared_preferences: ^0.5.12+4
-  intro_slider: ^2.3.4
+  # extended_image: ^1.6.0
+  # shared_preferences: ^0.5.12+4
   intent: ^1.4.0
   flutter_icons: ^1.1.0
   flutter_launcher_icons: ^0.8.1

@@ -1,4 +1,4 @@
-class AppStrings{
+class AppStrings {
   static const String appName = 'wallpaperApp';
   static const String searchBarHint = 'Find wallpaper ...';
   static const String bestWallpaper = 'Best wallpaper';
@@ -7,4 +7,5 @@ class AppStrings{
   static const String info = 'Info';
   static const String save = 'Save';
   static const String apply = 'Apply';
+  static const String updateWallpaper = 'update';
 }

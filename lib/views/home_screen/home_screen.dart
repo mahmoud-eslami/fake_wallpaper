@@ -6,6 +6,7 @@ import 'package:flutter_wallpaper/models/category_model/category_model.dart';
 import 'package:flutter_wallpaper/resource/app_colors/app_colors.dart';
 import 'package:flutter_wallpaper/resource/app_strings/app_strings.dart';
 import 'package:flutter_wallpaper/utils/size_config/size_config.dart';
+import 'package:flutter_wallpaper/views/search_screen/search_screen.dart';
 import 'package:flutter_wallpaper/views/wallpaper_screen/wallpaper_screen.dart';
 import 'package:get/get.dart';
 
@@ -91,8 +92,9 @@ class _SearchBarState extends State<SearchBar> {
         maxLines: 1,
         cursorColor: Get.theme.primaryColor,
         decoration: InputDecoration(
-          suffixIcon: const Icon(
-            Icons.search,
+          suffixIcon: IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {},
           ),
           hintText: AppStrings.searchBarHint,
         ),
@@ -123,11 +125,28 @@ class _BestWallpaperWidgetState extends State<BestWallpaperWidget> {
       children: [
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text(
-            AppStrings.bestWallpaper,
-            style: TextStyle(
-              fontSize: 22,
-            ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                AppStrings.bestWallpaper,
+                style: TextStyle(
+                  fontSize: 22,
+                ),
+              ),
+              FlatButton(
+                onPressed: () {
+                  wallpaperController.fetchWallpapers();
+                },
+                child: Text(
+                  AppStrings.updateWallpaper,
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Get.theme.primaryColor,
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
         SizedBox(
@@ -262,9 +281,18 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                     height: SizeConfig.heightMultiplier * 27,
                     child: ListView.builder(
                       itemCount: items.length,
-                      itemBuilder: (context, index) =>
-                          categoryItemWidget(items[index].imgPath),
-                    ))
+                      itemBuilder: (context, index) => GestureDetector(
+                        onTap: () {
+                          Get.to(
+                            SearchScreen(
+                              searchedTitle: items[index].title,
+                            ),
+                          );
+                        },
+                        child: categoryItemWidget(items[index].imgPath),
+                      ),
+                    ),
+                  )
           ],
         );
       },

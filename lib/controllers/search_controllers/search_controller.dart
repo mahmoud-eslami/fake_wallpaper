@@ -1,28 +1,25 @@
 import 'package:get/get.dart';
 
-class WallpaperController extends GetxController {
-  var wallpaperList = List<String>();
-  var loading;
+class SearchController extends GetxController {
+  var wallpapers = List<String>();
+  var loading = true;
 
   fetchWallpapers() async {
-    refreshData();
     await Future.delayed(Duration(seconds: 2));
     List<String> items = [
       "assets/images/wall1.jpg",
       "assets/images/wall2.jfif",
       "assets/images/wall3.jfif",
       "assets/images/wall.jpg",
+      "assets/images/wall3.jfif",
+      "assets/images/wall.jpg",
+      "assets/images/wall.jpg",
+      "assets/images/flow.jpeg",
       "assets/images/flow.jpeg",
     ];
-    wallpaperList.addAll(items);
-    wallpaperList.shuffle();
+    wallpapers.addAll(items);
+    wallpapers.shuffle();
     loading = false;
-    update();
-  }
-
-  refreshData() {
-    loading = true;
-    wallpaperList = [];
     update();
   }
 }
