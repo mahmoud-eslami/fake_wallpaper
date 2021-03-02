@@ -1,5 +1,5 @@
 class AppStrings {
-  static const String appName = 'wallpaperApp';
+  static const String appName = 'fake_wallpaper';
   static const String searchBarHint = 'Find wallpaper ...';
   static const String bestWallpaper = 'Best wallpaper';
   static const String categories = 'Categories';

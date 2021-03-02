@@ -24,8 +24,8 @@ class MyApp extends StatelessWidget {
             return GetMaterialApp(
               debugShowCheckedModeBanner: false,
               title: AppStrings.appName,
-              theme: AppThemes.dark,
-              darkTheme: AppThemes.light,
+              theme: AppThemes.light,
+              darkTheme: AppThemes.dark,
               home: GetBuilder(
                   init: splashController,
                   builder: (controller) {
