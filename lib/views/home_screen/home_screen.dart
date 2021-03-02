@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_wallpaper/recources/app_colors/app_colors.dart';
-import 'package:flutter_wallpaper/recources/app_strings/app_strings.dart';
-import 'package:flutter_wallpaper/recources/app_themes/app_themes.dart';
+import 'package:flutter_wallpaper/resource/app_colors/app_colors.dart';
+import 'package:flutter_wallpaper/resource/app_strings/app_strings.dart';
+import 'package:flutter_wallpaper/resource/app_themes/app_themes.dart';
+import 'package:flutter_wallpaper/utils/size_config/size_config.dart';
 import 'package:get/get.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -18,6 +19,7 @@ class HomeScreen extends StatelessWidget {
           children: [
             SearchBar(),
             BestWallpaperWidget(),
+            ColorToneWidget(),
             CategoryWidget(),
           ],
         ),
@@ -71,7 +73,7 @@ class BestWallpaperWidget extends StatelessWidget {
           AppStrings.bestWallpaper,
         ),
         SizedBox(
-          height: 200,
+          height: SizeConfig.heightMultiplier * 23,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: 10,
@@ -92,11 +94,40 @@ class BestWallpaperWidget extends StatelessWidget {
           //todo: add cache network image here
           child: Image.asset(
             'assets/images/wall.jpg',
-            width: 100,
             fit: BoxFit.fill,
           ),
         ),
       );
+}
+
+class ColorToneWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text(AppStrings.colorTone),
+        SizedBox(
+          height: SizeConfig.heightMultiplier * 9,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: 10,
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  width: SizeConfig.widthMultiplier * 13,
+                  decoration: BoxDecoration(
+                    color: Colors.primaries[index],
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+              );
+            },
+          ),
+        ),
+      ],
+    );
+  }
 }
 
 class CategoryWidget extends StatelessWidget {
@@ -107,7 +138,45 @@ class CategoryWidget extends StatelessWidget {
         Text(
           AppStrings.categories,
         ),
+        Wrap(
+          children: [
+            Row(
+              children: [
+                Expanded(child: categoryItemWidget()),
+                Expanded(child: categoryItemWidget()),
+              ],
+            ),
+            Row(
+              children: [
+                Expanded(child: categoryItemWidget()),
+                Expanded(child: categoryItemWidget()),
+              ],
+            ),
+            Row(
+              children: [
+                Expanded(child: categoryItemWidget()),
+                Expanded(child: categoryItemWidget()),
+              ],
+            ),
+          ],
+        ),
       ],
     );
   }
+
+  Widget categoryItemWidget() => Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Material(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          clipBehavior: Clip.antiAliasWithSaveLayer,
+          //todo: add cache network image here
+          child: Image.asset(
+            'assets/images/wall.jpg',
+            height: 80,
+            fit: BoxFit.fill,
+          ),
+        ),
+      );
 }

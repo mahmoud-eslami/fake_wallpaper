@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_wallpaper/recources/app_colors/app_colors.dart';
+import 'package:flutter_wallpaper/resource/app_colors/app_colors.dart';
 
 class AppThemes {
   static final light = ThemeData.light().copyWith(
