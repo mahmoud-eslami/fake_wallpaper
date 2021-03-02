@@ -18,7 +18,7 @@ class WallpaperScreen extends StatelessWidget {
             imgPath,
             width: SizeConfig.widthMultiplier * 100,
             height: SizeConfig.heightMultiplier * 100,
-            fit: BoxFit.fill,
+            fit: BoxFit.cover,
           ),
           Align(
             alignment: Alignment.bottomCenter,

@@ -5,12 +5,13 @@ class SplashController extends GetxController {
 
   @override
   void onInit() {
-    super.onInit();
     splashPageOpened();
+
+    super.onInit();
   }
 
   splashPageOpened() async {
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(Duration(seconds: 3));
     splashFinished = true;
     update();
   }

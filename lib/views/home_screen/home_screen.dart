@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_wallpaper/controllers/home_controllers/category_controller.dart';
 import 'package:flutter_wallpaper/controllers/home_controllers/theme_controller.dart';
 import 'package:flutter_wallpaper/resource/app_colors/app_colors.dart';
 import 'package:flutter_wallpaper/resource/app_strings/app_strings.dart';
-import 'package:flutter_wallpaper/resource/app_themes/app_themes.dart';
 import 'package:flutter_wallpaper/utils/size_config/size_config.dart';
 import 'package:flutter_wallpaper/views/wallpaper_screen/wallpaper_screen.dart';
 import 'package:get/get.dart';
@@ -183,44 +183,56 @@ class ColorToneWidget extends StatelessWidget {
   }
 }
 
-class CategoryWidget extends StatelessWidget {
+class CategoryWidget extends StatefulWidget {
+  @override
+  _CategoryWidgetState createState() => _CategoryWidgetState();
+}
+
+class _CategoryWidgetState extends State<CategoryWidget> {
+  final categoryController = Get.put(CategoryController());
+
+  @override
+  void initState() {
+    categoryController.fetchCategories();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text(
-            AppStrings.categories,
-            style: TextStyle(
-              fontSize: 22,
-            ),
-          ),
-        ),
-        Wrap(
+    return GetBuilder(
+      init: categoryController,
+      builder: (controller) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              children: [
-                Expanded(child: categoryItemWidget()),
-                Expanded(child: categoryItemWidget()),
-              ],
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                AppStrings.categories,
+                style: TextStyle(
+                  fontSize: 22,
+                ),
+              ),
             ),
-            Row(
+            (controller.loading == true)
+                ? SizedBox(
+                    height: SizeConfig.heightMultiplier * 30,
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: CircularProgressIndicator(
+                        strokeWidth: 1.7,
+                      ),
+                    ),
+                  )
+                : GridView.count(
+                    crossAxisCount: 2,
               children: [
-                Expanded(child: categoryItemWidget()),
-                Expanded(child: categoryItemWidget()),
+                categoryItemWidget()
               ],
-            ),
-            Row(
-              children: [
-                Expanded(child: categoryItemWidget()),
-                Expanded(child: categoryItemWidget()),
-              ],
-            ),
+                  ),
           ],
-        ),
-      ],
+        );
+      },
     );
   }
 
