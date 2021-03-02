@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
               theme: AppThemes.light,
               darkTheme: AppThemes.dark,
               home: GetBuilder(
-                init: splashController,
+                  init: splashController,
                   builder: (controller) {
                     if (controller.splashFinished == true) {
                       return HomeScreen();

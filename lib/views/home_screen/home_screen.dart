@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_wallpaper/controllers/home_controllers/category_controller.dart';
 import 'package:flutter_wallpaper/controllers/home_controllers/theme_controller.dart';
+import 'package:flutter_wallpaper/controllers/home_controllers/wallpaper_controller.dart';
+import 'package:flutter_wallpaper/models/category_model/category_model.dart';
 import 'package:flutter_wallpaper/resource/app_colors/app_colors.dart';
 import 'package:flutter_wallpaper/resource/app_strings/app_strings.dart';
 import 'package:flutter_wallpaper/utils/size_config/size_config.dart';
@@ -20,12 +22,14 @@ class HomeScreen extends StatelessWidget {
         child: GetBuilder(
           init: themeController,
           builder: (controller) => Icon(
-            (controller.lightTheme == true) ? Icons.wb_sunny : Icons.nightlight_round,
+            (controller.lightTheme == true)
+                ? Icons.wb_sunny
+                : Icons.nightlight_round,
           ),
         ),
       ),
-      body: SingleChildScrollView(
-        child: SafeArea(
+      body: SafeArea(
+        child: SingleChildScrollView(
           child: Column(
             children: [
               Padding(
@@ -97,7 +101,21 @@ class _SearchBarState extends State<SearchBar> {
   }
 }
 
-class BestWallpaperWidget extends StatelessWidget {
+class BestWallpaperWidget extends StatefulWidget {
+  @override
+  _BestWallpaperWidgetState createState() => _BestWallpaperWidgetState();
+}
+
+class _BestWallpaperWidgetState extends State<BestWallpaperWidget> {
+  final wallpaperController = Get.put(WallpaperController());
+  List<String> items = [];
+
+  @override
+  void initState() {
+    wallpaperController.fetchWallpapers();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -114,22 +132,37 @@ class BestWallpaperWidget extends StatelessWidget {
         ),
         SizedBox(
           height: SizeConfig.heightMultiplier * 23,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: 10,
-            itemBuilder: (context, index) => GestureDetector(
-              onTap: () {
-                Get.to(WallpaperScreen(imgPath: 'assets/images/flow.jpeg'));
-              },
-              child: imageWidget(),
-            ),
+          child: GetBuilder(
+            init: wallpaperController,
+            builder: (controller) {
+              if (controller.loading == true) {
+                return Align(
+                  alignment: Alignment.center,
+                  child: CircularProgressIndicator(
+                    strokeWidth: 1.7,
+                  ),
+                );
+              } else {
+                items = controller.wallpaperList;
+              }
+              return ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: items.length,
+                itemBuilder: (context, index) => GestureDetector(
+                  onTap: () {
+                    Get.to(WallpaperScreen(imgPath: items[index]));
+                  },
+                  child: imageWidget(items[index]),
+                ),
+              );
+            },
           ),
         ),
       ],
     );
   }
 
-  Widget imageWidget() => Padding(
+  Widget imageWidget(String img) => Padding(
         padding: const EdgeInsets.all(8.0),
         child: Material(
           shape: RoundedRectangleBorder(
@@ -137,7 +170,7 @@ class BestWallpaperWidget extends StatelessWidget {
           ),
           clipBehavior: Clip.antiAliasWithSaveLayer,
           child: Image.asset(
-            'assets/images/flow.jpeg',
+            img,
             fit: BoxFit.fill,
           ),
         ),
@@ -202,6 +235,7 @@ class _CategoryWidgetState extends State<CategoryWidget> {
     return GetBuilder(
       init: categoryController,
       builder: (controller) {
+        List<CategoryModel> items = controller.categoryList;
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -224,28 +258,28 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                       ),
                     ),
                   )
-                : GridView.count(
-                    crossAxisCount: 2,
-              children: [
-                categoryItemWidget()
-              ],
-                  ),
+                : SizedBox(
+                    height: SizeConfig.heightMultiplier * 27,
+                    child: ListView.builder(
+                      itemCount: items.length,
+                      itemBuilder: (context, index) =>
+                          categoryItemWidget(items[index].imgPath),
+                    ))
           ],
         );
       },
     );
   }
 
-  Widget categoryItemWidget() => Padding(
+  Widget categoryItemWidget(String imagePath) => Padding(
         padding: const EdgeInsets.all(8.0),
         child: Material(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
           ),
           clipBehavior: Clip.antiAliasWithSaveLayer,
-          //todo: add cache network image here
           child: Image.asset(
-            'assets/images/wall.jpg',
+            imagePath,
             height: 80,
             fit: BoxFit.cover,
           ),
