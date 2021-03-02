@@ -15,9 +15,9 @@ In this sample use mvc for application architecture and use getx package for sta
 #### Packages
 | Packages | pub.dev |
 | ------ | ------ |
-| Get x | [https://pub.dev/packages/get][PlDb] |
-| Intent | [https://pub.dev/packages/intent][PlGh] |
-| flutter staggered grid view | [https://pub.dev/packages/flutter_staggered_grid_view][PlMe] |
-| google fonts | [https://pub.dev/packages/google_fonts][PlGa] |
-| flutter icon launcher | [https://pub.dev/packages/flutter_launcher_icons][PlOd] |
+| Get x | [https://pub.dev/packages/get] |
+| Intent | [https://pub.dev/packages/intent] |
+| flutter staggered grid view | [https://pub.dev/packages/flutter_staggered_grid_view] |
+| google fonts | [https://pub.dev/packages/google_fonts] |
+| flutter icon launcher | [https://pub.dev/packages/flutter_launcher_icons] |
 
