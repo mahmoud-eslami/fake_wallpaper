@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_wallpaper/resource/app_colors/app_colors.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AppThemes {
   static final light = ThemeData.light().copyWith(
     primaryColor: AppColors.lightThemePrimaryColor,
     scaffoldBackgroundColor: AppColors.lightThemeBackgroundColor,
     accentColor: AppColors.lightThemePrimaryColor,
-    textTheme: _textTheme(lightThemeTextStyle),
+    textTheme: GoogleFonts.alatsiTextTheme(
+      _textTheme(lightThemeTextStyle),
+    ),
     inputDecorationTheme: InputDecorationTheme(
       border: OutlineInputBorder(
         borderSide: BorderSide.none,
@@ -19,7 +22,9 @@ class AppThemes {
     primaryColor: AppColors.darkThemePrimaryColor,
     scaffoldBackgroundColor: AppColors.darkThemeBackgroundColor,
     accentColor: AppColors.darkThemePrimaryColor,
-    textTheme: _textTheme(darkThemeTextStyle),
+    textTheme: GoogleFonts.alatsiTextTheme(
+      _textTheme(darkThemeTextStyle),
+    ),
     inputDecorationTheme: InputDecorationTheme(
       border: OutlineInputBorder(
         borderSide: BorderSide.none,

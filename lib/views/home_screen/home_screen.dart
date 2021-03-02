@@ -14,14 +14,37 @@ class HomeScreen extends StatelessWidget {
           Get.changeTheme(Get.isDarkMode ? AppThemes.light : AppThemes.dark);
         },
       ),
-      body: SafeArea(
-        child: Column(
-          children: [
-            SearchBar(),
-            BestWallpaperWidget(),
-            ColorToneWidget(),
-            CategoryWidget(),
-          ],
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: SearchBar(),
+              ),
+              SizedBox(
+                height: SizeConfig.heightMultiplier * 1,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 15.0),
+                child: BestWallpaperWidget(),
+              ),
+              SizedBox(
+                height: SizeConfig.heightMultiplier * 2,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 15.0),
+                child: ColorToneWidget(),
+              ),
+              SizedBox(
+                height: SizeConfig.heightMultiplier * 2,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 15.0, right: 15.0),
+                child: CategoryWidget(),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -68,9 +91,16 @@ class BestWallpaperWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          AppStrings.bestWallpaper,
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            AppStrings.bestWallpaper,
+            style: TextStyle(
+              fontSize: 22,
+            ),
+          ),
         ),
         SizedBox(
           height: SizeConfig.heightMultiplier * 23,
@@ -104,8 +134,17 @@ class ColorToneWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(AppStrings.colorTone),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            AppStrings.colorTone,
+            style: TextStyle(
+              fontSize: 22,
+            ),
+          ),
+        ),
         SizedBox(
           height: SizeConfig.heightMultiplier * 9,
           child: ListView.builder(
@@ -134,9 +173,16 @@ class CategoryWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          AppStrings.categories,
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            AppStrings.categories,
+            style: TextStyle(
+              fontSize: 22,
+            ),
+          ),
         ),
         Wrap(
           children: [
