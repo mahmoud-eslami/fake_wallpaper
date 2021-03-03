@@ -1,7 +1,7 @@
 # Fake Wallpaper
 ###### _MVC flutter app with fake data_
 
-In this sample use mvc for application architecture and use getx package for state management and navigation. data is fake but in future application integrated with wallpaper api.
+In this sample use mvc for application architecture and use getx package for state management and navigation. data is fake but in future application will be integrate with wallpaper api.
 
 - Feel free to contribute 🙏
 - Your pull requests are welcome 🥳
